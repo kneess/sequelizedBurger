@@ -1,0 +1,55 @@
+li {
+    padding: 5px;
+    margin: 5px;
+  }
+  
+
+  .label {
+    font-weight: bold;
+  }
+  
+  .create-update-form {
+    padding: 5px;
+    margin: 5px;
+    background: aqua;
+  }
+  
+  .form-group {
+    margin-bottom: 5px;
+  }
+
+  #devoured {
+    float: right;
+  }
+
+  #undevoured {
+    float: left;
+  }
+
+  #burgerform {
+    clear: both;
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  body {
+    background: #FFCC4D;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 27%;
+    height: 160px;
+}
+
+  #wrap {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    background: #FFCC4D;
+  }
