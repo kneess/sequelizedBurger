@@ -14,9 +14,10 @@ $(function() {
         method: "PUT",
         url: "api/burgers",
         data: newBurgerState
-      }). then(
-        // location.reload()
-      );
+      }). then(function(devouredBurger) {
+        console.log(devouredBurger);
+        location.reload();
+      });
   
       // Send the PUT request.
       // $.ajax("/api/burgers/:id", {
