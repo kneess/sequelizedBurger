@@ -34,7 +34,10 @@ $(function() {
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
-      console.log( "heres the burger")
+      console.log( "heres the burger");
+      if($("#ca").val().trim() === "") {
+        alert("Enter a burger name")
+      } else {
   
       var newBurger = {
         burger_name: $("#ca").val().trim(),
@@ -53,6 +56,7 @@ $(function() {
         location.reload();
       }
       );
+    }
     });
   });
   
