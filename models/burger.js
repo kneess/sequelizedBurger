@@ -30,6 +30,8 @@
           defaultValue: false }  
       });
 
+      Burger.sync();
+
     return Burger;
   };
   

@@ -1,16 +1,48 @@
-
 var db = require("../models")
 module.exports = function(app) {
 
-  app.get("/api/burgers", function(req,res) {
-    db.Burger.findAll({}).then(function(dbBurger) {
-      res.json(dbBurger)
+
+  app.get("/", function(req, res) {
+    db.Burger.findAll({ raw: true }).then(function(data) {
+        // console.log(burgerData)
+        var hbsObject = {
+            burgers: data
+        }
+        // console.log(hbsObject)
+    res.render("index",hbsObject)
+    })
+  });
+
+  // app.get("/api/burgers", function(req,res) {
+  //   db.Burger.findAll({}).then(function(data) {
+  //     res.json(data)
+  //     // console.log(data)
+  //   });
+  // });
+
+
+  app.post("/api/burgers", function(req, res) {
+    db.Burger.create({
+      burger_name: req.body.burger_name,
+      devoured: req.body.devoured
+    }).then(function(data) {
+      // console.log(data)
+      res.json(data);
     });
   });
 
-  app.post("/api/burgers", function(req, res) {
-    db.Burger.create(req.body).then(function(dbBurger) {
-      res.json(dbBurger);
+  app.put("/api/burgers", function(req, res) {
+    db.Burger.update({
+      devoured: req.body.devoured
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbBurger) {
+      res.json(dbBurger)
+    })
+    .catch(function(err) {
+      res.json(err)
     });
   });
 
